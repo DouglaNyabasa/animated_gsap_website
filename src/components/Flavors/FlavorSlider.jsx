@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
 import { flavorlists } from "../../constants";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { SplitText } from "gsap/all";
 
 const FlavorSlider = () => {
+
+    const sliderRef = useRef()
+
+    useGSAP(()=>{
+        const scrollAmount = sliderRef.current.scrollWidth - window.innerWidth;
+        const tl = gsap.timeline({
+            scrollTrigger:{
+                trigger: ".flavor-section",
+                start: "2% top",
+                end: `+=${scrollAmount}px`,
+                scrub: true,
+                pin:true
+            }
+        });
+        tl.to(".flavor-section",{
+            x: `-${scrollAmount}px`,
+            ease:"power1.inOut"
+        })
+    })
   return (
-    <div className="slider-wrapper">
+    <div ref={sliderRef} className="slider-wrapper">
       <div className="flavors">
         {flavorlists.map((flavor) => (
             <div
