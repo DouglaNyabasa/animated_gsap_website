@@ -77,7 +77,11 @@ const Nutrition = () => {
             <div className="overflow-hidden place-self-start">
               <h1 className="nutrition-title">It still does</h1>
             </div>
-            <div className="place-self-start nutrition-text-scroll">
+            <div
+              style={{
+                clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
+              }}
+             className="place-self-start nutrition-text-scroll">
               <div className="bg-yellow-brown pb-5 md:pt-0 pt-3 md:px-5 px-3 inline-block">
                 <h2 className="text-milk-yellow">Body Good</h2>
               </div>
