@@ -1,9 +1,7 @@
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
-  plugins: [
-    react(), tailwindcss(),
-    base: process.env.VITE_BASE_PATH || "/animated_gsap_website",
-  ],
-})
+  plugins: [react(), tailwindcss()],
+  base: process.env.VITE_BASE_PATH || "/animated_gsap_website",
+});
